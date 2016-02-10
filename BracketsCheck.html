@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Checking Brackets</title>
+    </head>
+    <body>
+        <p id="demo"></p>
+       <p id="demo1"></p>
+        <p id="demo2"></p>
+        <script>
+            {
+       function CheckBrackets(str)
+        {
+        var result=[ ];
+            var notResult=[];
+        var len=str.length;
+        var i;
+        for(i=0;i<len;i++)
+        {
+                            var char= str.charAt(i);
+                            if(char == "(")
+                            {
+                            result.push('(');
+                            }
+                            if(char == ")")
+                            {
+                                if(result.length<=0){notResult.push(')');
+                                                    }
+                                else{
+                                result.pop();}
+                            }
+       }
+                            if((result.length<=0) && (notResult.length<=0)){return "correct";}
+                            else {return "incorrect";}
+                               }
+    document.getElementById("demo").innerHTML = CheckBrackets("( ( a + b ) / 5 abd )");
+     document.getElementById("demo1").innerHTML = CheckBrackets(") (a+b))");
+     document.getElementById("demo2").innerHTML = CheckBrackets("(b * ( c + d *2 / ( 2 + ( 12 abc / ( a + 3 ) ) ) )");
+}</script>
+            
+    </body>
+</html>
